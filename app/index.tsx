@@ -3,10 +3,16 @@ import {HelloWave} from "@/components/HelloWave";
 import {ThemedView} from "@/components/ThemedView";
 import {ThemedText} from "@/components/ThemedText";
 import React from "react";
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import {MaterialCommunityIcons} from "@expo/vector-icons";
 
+function Button({text, iconName}: { text: string, iconName: string }) {
+    return <Pressable style={styles.button}>
+        <ThemedText style={styles.buttonText}>{text}</ThemedText>
+        <Pressable style={styles.buttonBox}>
+            <MaterialCommunityIcons name={iconName as any} size={50} color="#151718"/>
+        </Pressable>
+    </Pressable>;
+}
 
 export default function Index() {
     return (
@@ -20,26 +26,9 @@ export default function Index() {
                 </ThemedView>
             </ThemedView>
             <ThemedView style={styles.container}>
-                <Pressable style={styles.button}>
-                    <ThemedText style={styles.buttonText}>Take a gamble</ThemedText>
-                    <Pressable style={styles.buttonBox}>
-                        <MaterialCommunityIcons name="poker-chip" size={50} color="#151718"/>
-                    </Pressable>
-                </Pressable>
-
-                <Pressable style={styles.button}>
-                    <ThemedText style={styles.buttonText}>Take a gamble</ThemedText>
-                    <Pressable style={styles.buttonBox}>
-                        <Ionicons name="compass" size={50} color="#151718"/>
-                    </Pressable>
-                </Pressable>
-
-                <Pressable style={styles.button}>
-                    <ThemedText style={styles.buttonText}>Take a gamble</ThemedText>
-                    <Pressable style={styles.buttonBox}>
-                        <MaterialIcons name="face" size={50} color="#151718"/>
-                    </Pressable>
-                </Pressable>
+                <Button text={"Discover your face shape"} iconName={"face-man"}/>
+                <Button text={"Explore new haircuts"} iconName={"compass"}/>
+                <Button text={"Take a gamble"} iconName={"poker-chip"}/>
             </ThemedView>
         </ThemedView>
     );
@@ -66,7 +55,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#0A7EA4",
         width: 300,
         height: 150,
-        display: "flex",
         borderRadius: 10
     },
 
