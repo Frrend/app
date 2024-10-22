@@ -12,7 +12,6 @@ export default function FaceShape() {
     useEffect(() => {
         (async () => {
             const cameraPermissions = await Camera.requestCameraPermissionsAsync();
-            const mediaLibraryPermissions = await requestPermissionsAsync();
             setHasCameraPermission(cameraPermissions.status === "granted");
         })();
     }, [])
