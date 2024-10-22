@@ -2,7 +2,6 @@ import {Button, StyleSheet, View} from "react-native";
 import React, {useEffect, useRef, useState} from "react";
 import {Camera, CameraView} from 'expo-camera';
 import {ThemedText} from "@/components/ThemedText";
-import {requestPermissionsAsync} from "expo-media-library";
 
 export default function FaceShape() {
     let cameraRef = useRef(null);
