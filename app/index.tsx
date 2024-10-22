@@ -7,8 +7,6 @@ import {requestPermissionsAsync} from "expo-media-library";
 export default function FaceShape() {
     let cameraRef = useRef(null);
     const [hasCameraPermission, setHasCameraPermission] = useState(false);
-    const [hasMediaLibraryPermission, setHasMediaLibraryPermission] = useState(false);
-    const [photo, setPhoto] = useState();
 
 
     useEffect(() => {
@@ -16,7 +14,6 @@ export default function FaceShape() {
             const cameraPermissions = await Camera.requestCameraPermissionsAsync();
             const mediaLibraryPermissions = await requestPermissionsAsync();
             setHasCameraPermission(cameraPermissions.status === "granted");
-            setHasMediaLibraryPermission(mediaLibraryPermissions.status === "granted");
         })();
     }, [])
 
@@ -24,17 +21,6 @@ export default function FaceShape() {
         return <ThemedText>Requesting permissions...</ThemedText>
     } else if (!hasCameraPermission) {
         return <ThemedText>Permissions for camera not granted. Please change in settings.</ThemedText>
-    }
-
-    let takePic = async () => {
-        let options = {
-            quality: 1,
-            base64: true,
-            exif: false
-        }
-
-        let newPhoto = await (cameraRef.current as any).takePictureAsync(options);
-        setPhoto(newPhoto);
     }
 
     return (
