@@ -8,14 +8,14 @@ import {Link} from "expo-router";
 
 function Button({text, iconName}: { text: string, iconName: string }) {
     return <ThemedView style={styles.button}>
-        <ThemedText style={styles.buttonText}>{text}</ThemedText>
-        <ThemedView style={styles.buttonBox}>
-            <MaterialCommunityIcons name={iconName as any} size={50} color="#151718"/>
-        </ThemedView>
+        <ThemedText style={{margin: 6}}>{text}</ThemedText>
+            <ThemedView style={styles.buttonBox}>
+                <MaterialCommunityIcons name={iconName as any} size={50} color="#151718"/>
+            </ThemedView>
     </ThemedView>;
 }
 
-export default function HomeScreen({}) {
+export default function HomeScreen() {
     return (
         <ThemedView style={{flex: 1}}>
             <ThemedView style={styles.containerHeader}>
@@ -27,7 +27,6 @@ export default function HomeScreen({}) {
                 </ThemedView>
             </ThemedView>
             <ThemedView style={styles.container}>
-                <Link href={"/camera"}> asd</Link>
                 <Link href="/camera"><Button text={"Discover your face shape"} iconName={"face-man"}/></Link>
                 <Button text={"Explore new haircuts"} iconName={"compass"}/>
                 <Button text={"Take a gamble"} iconName={"poker-chip"}/>
@@ -57,17 +56,15 @@ const styles = StyleSheet.create({
         backgroundColor: "#0A7EA4",
         width: 300,
         height: 150,
-        borderRadius: 10
-    },
-
-    buttonText: {
-        margin: 5
+        borderRadius: 10,
+        alignItems: "center"
     },
 
     buttonBox: {
         backgroundColor: "#ECEDEE",
-        width: "100%",
+        width: "90%",
         height: 100,
+        borderRadius: 10,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
