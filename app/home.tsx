@@ -4,6 +4,7 @@ import {ThemedView} from "@/components/ThemedView";
 import {ThemedText} from "@/components/ThemedText";
 import React from "react";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
+import {Link} from "expo-router";
 
 function Button({text, iconName}: { text: string, iconName: string }) {
     return <Pressable style={styles.button}>
@@ -14,7 +15,8 @@ function Button({text, iconName}: { text: string, iconName: string }) {
     </Pressable>;
 }
 
-export default function Index() {
+
+export default function HomeScreen({}) {
     return (
         <ThemedView style={{flex: 1}}>
             <ThemedView style={styles.containerHeader}>
@@ -26,7 +28,7 @@ export default function Index() {
                 </ThemedView>
             </ThemedView>
             <ThemedView style={styles.container}>
-                <Button text={"Discover your face shape"} iconName={"face-man"}/>
+                <Link href="/camera"><Button text={"Discover your face shape"} iconName={"face-man"}/></Link>
                 <Button text={"Explore new haircuts"} iconName={"compass"}/>
                 <Button text={"Take a gamble"} iconName={"poker-chip"}/>
             </ThemedView>
