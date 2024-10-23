@@ -1,4 +1,4 @@
-import {Pressable, StyleSheet} from "react-native";
+import {StyleSheet} from "react-native";
 import {HelloWave} from "@/components/HelloWave";
 import {ThemedView} from "@/components/ThemedView";
 import {ThemedText} from "@/components/ThemedText";
@@ -7,14 +7,13 @@ import {MaterialCommunityIcons} from "@expo/vector-icons";
 import {Link} from "expo-router";
 
 function Button({text, iconName}: { text: string, iconName: string }) {
-    return <Pressable style={styles.button}>
+    return <ThemedView style={styles.button}>
         <ThemedText style={styles.buttonText}>{text}</ThemedText>
-        <Pressable style={styles.buttonBox}>
+        <ThemedView style={styles.buttonBox}>
             <MaterialCommunityIcons name={iconName as any} size={50} color="#151718"/>
-        </Pressable>
-    </Pressable>;
+        </ThemedView>
+    </ThemedView>;
 }
-
 
 export default function HomeScreen({}) {
     return (
@@ -28,6 +27,7 @@ export default function HomeScreen({}) {
                 </ThemedView>
             </ThemedView>
             <ThemedView style={styles.container}>
+                <Link href={"/camera"}> asd</Link>
                 <Link href="/camera"><Button text={"Discover your face shape"} iconName={"face-man"}/></Link>
                 <Button text={"Explore new haircuts"} iconName={"compass"}/>
                 <Button text={"Take a gamble"} iconName={"poker-chip"}/>
